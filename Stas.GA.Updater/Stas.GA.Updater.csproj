@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net7.0</TargetFramework>
+		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<NoWarn>SYSLIB0006,CS8981, CS0219, CA1416, CS0414, CS0169, CS0649</NoWarn>
+		<StartupObject>Stas.GA.Updater.Starter</StartupObject>
+		<AssemblyName>NoteUpd</AssemblyName>
+		<ApplicationIcon>notepad.ico</ApplicationIcon>
+
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<OutputPath>$(SolutionDir)bin\Updater\</OutputPath>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<OutputPath>$(SolutionDir)bin\Updater\</OutputPath>
+	</PropertyGroup>
+	<ItemGroup>
+		<Using Remove="System.Net.Http" />
+		<Using Include="ClickableTransparentOverlay" />
+		<Using Include="Stas.Utils" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\GameAssist\Stas.Utils\Stas.Utils.csproj" />
+	  <ProjectReference Include="..\ClickableTransparentOverlay\ClickableTransparentOverlay.csproj" />
+	</ItemGroup>
+
+</Project>
